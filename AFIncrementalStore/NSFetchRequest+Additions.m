@@ -24,7 +24,7 @@
 }
 
 - (NSDictionary *)predicateExpressionMapping {
-    __block NSMutableDictionary *expressionMapping;
+    __block NSMutableDictionary *expressionMapping = [[NSMutableDictionary alloc] init];
     [self enumeratePredicateUsingBlock:^(NSComparisonPredicate *obj, NSUInteger idx, BOOL *stop) {
         [expressionMapping setObject:obj.rightExpression.keyPath forKey:obj.leftExpression.keyPath];
     }];

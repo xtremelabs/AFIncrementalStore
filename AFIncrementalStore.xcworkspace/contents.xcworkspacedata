@@ -5,6 +5,12 @@
       location = "group:AFIncrementalStore"
       name = "AFIncrementalStore">
       <FileRef
+         location = "group:NSFetchRequest+Additions.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSFetchRequest+Additions.m">
+      </FileRef>
+      <FileRef
          location = "group:AFIncrementalStore.h">
       </FileRef>
       <FileRef
@@ -25,5 +31,8 @@
    </FileRef>
    <FileRef
       location = "group:Examples/CheckIns Example/CheckIns Example.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Library/AFIncrementalStoreLibrary/AFIncrementalStoreLibrary.xcodeproj">
    </FileRef>
 </Workspace>
