@@ -6,4 +6,6 @@
 
 - (NSDictionary *)predicateExpressionMapping;
 
+- (NSString *)valueForExpression:(NSExpression *)expression;
+
 @end

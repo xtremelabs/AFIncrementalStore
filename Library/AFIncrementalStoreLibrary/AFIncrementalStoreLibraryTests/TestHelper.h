@@ -11,18 +11,18 @@
 
 @interface TestHelper : NSObject
 
-+ (NSPredicate *)setUpComparisonPredicateWithMapping:(NSDictionary *)predicateMapping;
-
-+ (NSPredicate *)setUpPredicateWithMapping:(NSDictionary *)predicateMapping;
-
-//+ (NSPredicate *)compoundPredicate;
++ (NSPredicate *)compoundPredicate;
 
 + (NSPredicate *)compoundComparisonPredicate;
 
-//+ (NSPredicate *)singlePredicate;
++ (NSPredicate *)singlePredicate;
 
 + (NSPredicate *)singleComparisonPredicate;
 
 + (NSFetchRequest *)fetchRequest;
+
++ (NSDictionary *)compoundArgumentMapping;
+
++ (NSDictionary *)singleArgumentMapping;
 
 @end

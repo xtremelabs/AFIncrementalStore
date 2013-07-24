@@ -22,7 +22,7 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) NSDictionary *predicateMapping;
+@property (nonatomic, strong) NSDictionary *argumentsDictionary;
 
 @end
 
@@ -45,7 +45,7 @@
     }
 }
 
-#pragma mark - Core Data
+#pragma mark - Core Data Setup
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
@@ -96,7 +96,6 @@
     return __persistentStoreCoordinator;
 }
 
-
 - (void)setUp {
     [super setUp];
 }
@@ -105,31 +104,36 @@
     self.managedObjectContext = nil;
     self.managedObjectModel = nil;
     self.persistentStoreCoordinator = nil;
+    self.argumentsDictionary = nil;
     
     [super tearDown];
 }
 
-- (NSMutableURLRequest *)requestForFetchRequest:(NSFetchRequest *)fetchRequest
-                                    withContext:(NSManagedObjectContext *)context {
-    NSDictionary *mapping = [fetchRequest predicateExpressionMapping];
-    NSArray *arguments = @[ArtistAttributes.name, @"Cheap Trick"];
-    [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        STAssertEqualObjects(key, arguments[0], @"Key does not match argument.");
-        STAssertEqualObjects(obj, arguments[1], @"Key does not match argument.");
+- (NSMutableURLRequest *)expressionForAttribute_requestForFetchRequest:(NSFetchRequest *)fetchRequest
+                                                      withContext:(NSManagedObjectContext *)context {
+    [self.argumentsDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSExpression *expression = [fetchRequest predicateExpressionForAttribute:key];
+        STAssertEqualObjects(obj, [fetchRequest valueForExpression:expression], @"Predicate Expression does not match arguments dictionary value.");
     }];
     return nil;
 }
 
-- (void)testFetchRequestSinglePredicate_ExpressionMapping {
-    NSFetchRequest *fetchRequest = [TestHelper fetchRequest];
-    
-    NSArray *arguments = @[ArtistAttributes.name, @"Cheap Trick"];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@" argumentArray:arguments]];
-    
+- (NSMutableURLRequest *)expressionMapping_requestForFetchRequest:(NSFetchRequest *)fetchRequest
+                                    withContext:(NSManagedObjectContext *)context {
+    NSDictionary *mapping = [fetchRequest predicateExpressionMapping];
+    [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        STAssertEqualObjects(obj, self.argumentsDictionary[key], @"Arguments dictionary value does not match predicateExpressionMapping value.");
+    }];
+    return nil;
+}
+
+- (id)partialClientMock:(NSFetchRequest *)fetchRequest callSelector:(SEL)selector {
     id partialRESTClientMock = [OCMockObject partialMockForObject:[TestRESTClient sharedClient]];
-    [[[partialRESTClientMock stub] andCall:@selector(requestForFetchRequest:withContext:) onObject:self] requestForFetchRequest:OCMOCK_ANY withContext:OCMOCK_ANY];
-    [[partialRESTClientMock expect] requestForFetchRequest:fetchRequest withContext:self.managedObjectContext];
-    
+    [[[partialRESTClientMock stub] andCall:selector onObject:self] requestForFetchRequest:OCMOCK_ANY withContext:OCMOCK_ANY];
+    return partialRESTClientMock;
+}
+
+- (void)executeFetchRequest:(NSFetchRequest *)fetchRequest {
     NSError *error;
     [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (error) {
@@ -137,16 +141,44 @@
     }
 }
 
-- (void)testFetchRequestSinglePredicate_ExpressionForAttribute {
-    
+- (NSFetchRequest *)singleArgumentFetchRequest {
+    self.argumentsDictionary = [TestHelper singleArgumentMapping];
+    NSFetchRequest *fetchRequest = [TestHelper fetchRequest];
+    [fetchRequest setPredicate:[TestHelper singlePredicate]];
+    return fetchRequest;
 }
 
-- (void)testFetchRequestCompoundPredicate_ExpressionForAttribute {
-    
+- (NSFetchRequest *)compoundArgumentFetchRequest {
+    self.argumentsDictionary = [TestHelper compoundArgumentMapping];
+    NSFetchRequest *fetchRequest = [TestHelper fetchRequest];
+    [fetchRequest setPredicate:[TestHelper compoundPredicate]];
+    return fetchRequest;
+}
+
+#pragma mark - Integration Tests
+
+- (void)testFetchRequestSinglePredicate_ExpressionMapping {
+    NSFetchRequest *fetchRequest = [self singleArgumentFetchRequest];
+    [self partialClientMock:fetchRequest callSelector:@selector(expressionMapping_requestForFetchRequest:withContext:)];
+    [self executeFetchRequest:fetchRequest];
 }
 
 - (void)testFetchRequestCompoundPredicate_ExpressionForMapping {
-    
+    NSFetchRequest *fetchRequest = [self compoundArgumentFetchRequest];
+    [self partialClientMock:fetchRequest callSelector:@selector(expressionMapping_requestForFetchRequest:withContext:)];
+    [self executeFetchRequest:fetchRequest];
+}
+
+- (void)testFetchRequestSinglePredicate_ExpressionForAttribute {
+    NSFetchRequest *fetchRequest = [self singleArgumentFetchRequest];
+    [self partialClientMock:fetchRequest callSelector:@selector(expressionForAttribute_requestForFetchRequest:withContext:)];
+    [self executeFetchRequest:fetchRequest];
+}
+
+- (void)testFetchRequestCompoundPredicate_ExpressionForAttribute {
+    NSFetchRequest *fetchRequest = [self compoundArgumentFetchRequest];
+    [self partialClientMock:fetchRequest callSelector:@selector(expressionForAttribute_requestForFetchRequest:withContext:)];
+    [self executeFetchRequest:fetchRequest];
 }
 
 @end

@@ -15,10 +15,6 @@
     return [NSFetchRequest fetchRequestWithEntityName:Artist.entityName];
 }
 
-+ (NSPredicate *)setUpPredicateWithMapping:(NSDictionary *)predicateMapping {
-    return nil;
-}
-
 + (NSPredicate *)setUpComparisonPredicateWithMapping:(NSDictionary *)predicateMapping {
     __block NSMutableArray *predicateArray = [[NSMutableArray alloc] initWithCapacity:predicateMapping.count];
     
@@ -38,14 +34,48 @@
     return predicate;
 }
 
++ (NSPredicate *)setUpPredicateWithMapping:(NSDictionary *)predicateMapping {
+    NSString *basePredicateFormat = @"%K == %@";
+    NSString *compoundPredicateSeparator = @" AND ";
+    __block NSMutableString *predicateFormat = [[NSMutableString alloc] init];
+    __block NSMutableArray *argumentArray = [[NSMutableArray alloc] initWithCapacity:predicateMapping.count];
+    [predicateMapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if (argumentArray.count > 1) {
+            [predicateFormat appendString:compoundPredicateSeparator];
+        }
+        [predicateFormat appendString:basePredicateFormat];
+        [argumentArray addObject:key];
+        [argumentArray addObject:obj];
+    }];
+    return [NSPredicate predicateWithFormat:predicateFormat argumentArray:argumentArray];
+}
+
++ (NSDictionary *)compoundArgumentMapping {
+    return @{@"attribute1" : @"value1", @"attribute2" : @"value2"};
+}
+
++ (NSDictionary *)singleArgumentMapping {
+    return @{@"attribute1" : @"value1", @"attribute2" : @"value2"};
+}
+
 + (NSPredicate *)compoundComparisonPredicate {
-    NSDictionary *predicateMapping = @{@"attribute1" : @"value1", @"attribute2" : @"value2"};
+    NSDictionary *predicateMapping = [TestHelper compoundArgumentMapping];
     return [TestHelper setUpComparisonPredicateWithMapping:predicateMapping];
 }
 
++ (NSPredicate *)compoundPredicate {
+    NSDictionary *predicateMapping = [TestHelper compoundArgumentMapping];
+    return [TestHelper setUpPredicateWithMapping:predicateMapping];
+}
+
 + (NSPredicate *)singleComparisonPredicate {
-    NSDictionary *predicateMapping = @{@"attribute1" : @"value1"};
+    NSDictionary *predicateMapping = [TestHelper singleArgumentMapping];
     return [TestHelper setUpComparisonPredicateWithMapping:predicateMapping];
+}
+
++ (NSPredicate *)singlePredicate {
+    NSDictionary *predicateMapping = [TestHelper singleArgumentMapping];
+    return [TestHelper setUpPredicateWithMapping:predicateMapping];
 }
 
 
