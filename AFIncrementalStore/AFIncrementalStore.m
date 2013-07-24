@@ -349,13 +349,13 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
         
         [managedObject setValuesForKeysWithDictionary:attributes];
         
-        NSManagedObjectID *backingObjectID = [self objectIDForBackingObjectForEntity:entity withResourceIdentifier:resourceIdentifier];
+        NSManagedObjectID *backingObjectID = [self objectIDForBackingObjectForEntity:managedObject.entity withResourceIdentifier:resourceIdentifier];
         __block NSManagedObject *backingObject = nil;
         [backingContext performBlockAndWait:^{
             if (backingObjectID) {
                 backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
             } else {
-                backingObject = [NSEntityDescription insertNewObjectForEntityForName:entity.name inManagedObjectContext:backingContext];
+                backingObject = [NSEntityDescription insertNewObjectForEntityForName:managedObject.entity.name inManagedObjectContext:backingContext];
                 [backingObject.managedObjectContext obtainPermanentIDsForObjects:[NSArray arrayWithObject:backingObject] error:nil];
             }
         }];
@@ -367,9 +367,9 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
             [context insertObject:managedObject];
         }
         
-        NSDictionary *relationshipRepresentations = [self.HTTPClient representationsForRelationshipsFromRepresentation:representation ofEntity:entity fromResponse:response];
+        NSDictionary *relationshipRepresentations = [self.HTTPClient representationsForRelationshipsFromRepresentation:representation ofEntity:managedObject.entity fromResponse:response];
         for (NSString *relationshipName in relationshipRepresentations) {
-            NSRelationshipDescription *relationship = [[entity relationshipsByName] valueForKey:relationshipName];
+            NSRelationshipDescription *relationship = [[managedObject.entity relationshipsByName] valueForKey:relationshipName];
             id relationshipRepresentation = [relationshipRepresentations objectForKey:relationshipName];
             if (!relationship || (relationship.isOptional && (!relationshipRepresentation || [relationshipRepresentation isEqual:[NSNull null]]))) {
                 continue;

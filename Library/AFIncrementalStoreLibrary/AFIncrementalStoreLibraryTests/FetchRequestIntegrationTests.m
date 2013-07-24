@@ -11,7 +11,6 @@
 #import "TestRESTClient.h"
 #import "AFIncrementalStore.h"
 #import "NSFetchRequest+Additions.h"
-#import "Artist.h"
 #import "TestHelper.h"
 #import <OCMock/OCMock.h>
 #import <CoreData/CoreData.h>
@@ -35,6 +34,7 @@
 - (void)saveContext {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
@@ -55,6 +55,7 @@
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    
     if (coordinator != nil) {
         __managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
@@ -65,8 +66,7 @@
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
+- (NSManagedObjectModel *)managedObjectModel {
     if (__managedObjectModel != nil) {
         return __managedObjectModel;
     }
@@ -88,6 +88,7 @@
     
     AFIncrementalStore *incrementalStore = (AFIncrementalStore *)[__persistentStoreCoordinator addPersistentStoreWithType:[TestIncrementalStore type] configuration:nil URL:nil options:nil error:nil];
     NSError *error = nil;
+    
     if (![incrementalStore.backingPersistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
@@ -110,17 +111,19 @@
 }
 
 - (NSMutableURLRequest *)expressionForAttribute_requestForFetchRequest:(NSFetchRequest *)fetchRequest
-                                                      withContext:(NSManagedObjectContext *)context {
-    [self.argumentsDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSExpression *expression = [fetchRequest predicateExpressionForAttribute:key];
-        STAssertEqualObjects(obj, [fetchRequest valueForExpression:expression], @"Predicate Expression does not match arguments dictionary value.");
-    }];
+                                                           withContext:(NSManagedObjectContext *)context {
+    [self.argumentsDictionary
+     enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+         NSExpression *expression = [fetchRequest predicateExpressionForAttribute:key];
+         STAssertEqualObjects(obj, [fetchRequest valueForExpression:expression], @"Predicate Expression does not match arguments dictionary value.");
+     }];
     return nil;
 }
 
 - (NSMutableURLRequest *)expressionMapping_requestForFetchRequest:(NSFetchRequest *)fetchRequest
-                                    withContext:(NSManagedObjectContext *)context {
+                                                      withContext:(NSManagedObjectContext *)context {
     NSDictionary *mapping = [fetchRequest predicateExpressionMapping];
+    
     [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         STAssertEqualObjects(obj, self.argumentsDictionary[key], @"Arguments dictionary value does not match predicateExpressionMapping value.");
     }];
@@ -129,13 +132,16 @@
 
 - (id)partialClientMock:(NSFetchRequest *)fetchRequest callSelector:(SEL)selector {
     id partialRESTClientMock = [OCMockObject partialMockForObject:[TestRESTClient sharedClient]];
+    
     [[[partialRESTClientMock stub] andCall:selector onObject:self] requestForFetchRequest:OCMOCK_ANY withContext:OCMOCK_ANY];
     return partialRESTClientMock;
 }
 
 - (void)executeFetchRequest:(NSFetchRequest *)fetchRequest {
     NSError *error;
+    
     [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
     if (error) {
         STFail(@"FetchRequestPredicate failed: %@ %@", error, [error userInfo]);
     }
@@ -159,24 +165,28 @@
 
 - (void)testFetchRequestSinglePredicate_ExpressionMapping {
     NSFetchRequest *fetchRequest = [self singleArgumentFetchRequest];
+    
     [self partialClientMock:fetchRequest callSelector:@selector(expressionMapping_requestForFetchRequest:withContext:)];
     [self executeFetchRequest:fetchRequest];
 }
 
 - (void)testFetchRequestCompoundPredicate_ExpressionForMapping {
     NSFetchRequest *fetchRequest = [self compoundArgumentFetchRequest];
+    
     [self partialClientMock:fetchRequest callSelector:@selector(expressionMapping_requestForFetchRequest:withContext:)];
     [self executeFetchRequest:fetchRequest];
 }
 
 - (void)testFetchRequestSinglePredicate_ExpressionForAttribute {
     NSFetchRequest *fetchRequest = [self singleArgumentFetchRequest];
+    
     [self partialClientMock:fetchRequest callSelector:@selector(expressionForAttribute_requestForFetchRequest:withContext:)];
     [self executeFetchRequest:fetchRequest];
 }
 
 - (void)testFetchRequestCompoundPredicate_ExpressionForAttribute {
     NSFetchRequest *fetchRequest = [self compoundArgumentFetchRequest];
+    
     [self partialClientMock:fetchRequest callSelector:@selector(expressionForAttribute_requestForFetchRequest:withContext:)];
     [self executeFetchRequest:fetchRequest];
 }

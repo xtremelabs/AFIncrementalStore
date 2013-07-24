@@ -51,11 +51,11 @@
 }
 
 + (NSDictionary *)compoundArgumentMapping {
-    return @{@"attribute1" : @"value1", @"attribute2" : @"value2"};
+    return @{@"attribute1" : @"value1", @"attribute2" : @"value2", @"attribute3" : @"value3"};
 }
 
 + (NSDictionary *)singleArgumentMapping {
-    return @{@"attribute1" : @"value1", @"attribute2" : @"value2"};
+    return @{@"attribute1" : @"value1"};
 }
 
 + (NSPredicate *)compoundComparisonPredicate {

@@ -102,6 +102,12 @@
                     withContext:(NSManagedObjectContext *)context
                           error:(NSError *__autoreleasing *)error;
 
+/**
+ 
+ */
+- (NSManagedObjectID *)objectIDForEntity:(NSEntityDescription *)entity
+                  withResourceIdentifier:(NSString *)resourceIdentifier;
+
 @end
 
 #pragma mark -
