@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		54FE07CC179EDB5600BAD6EC /* MoGen */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 54FE07CD179EDB5600BAD6EC /* Build configuration list for PBXAggregateTarget "MoGen" */;
+			buildPhases = (
+				54FE07D0179EDB5B00BAD6EC /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = MoGen;
+			productName = MoGen;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		547BCF82179DD7B000649D47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BCF81179DD7B000649D47 /* Foundation.framework */; };
 		547BCF88179DD7B000649D47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 547BCF86179DD7B000649D47 /* InfoPlist.strings */; };
@@ -22,6 +36,34 @@
 		547DB2C9179DE0CD004073D4 /* AFIncrementalStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 547BCFAC179DD80900649D47 /* AFIncrementalStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		547DB2CA179DE0CD004073D4 /* AFRESTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 547BCFAE179DD80900649D47 /* AFRESTClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54FE07AB179EBFA900BAD6EC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FE07AA179EBFA900BAD6EC /* CoreData.framework */; };
+		54FE07AE179ED19200BAD6EC /* FetchRequestIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07AD179ED19200BAD6EC /* FetchRequestIntegrationTests.m */; };
+		54FE07B1179ED75F00BAD6EC /* TestIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07B0179ED75F00BAD6EC /* TestIncrementalStore.m */; };
+		54FE07B2179ED84100BAD6EC /* AFIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFAD179DD80900649D47 /* AFIncrementalStore.m */; };
+		54FE07B3179ED84100BAD6EC /* AFRESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFAF179DD80900649D47 /* AFRESTClient.m */; };
+		54FE07B4179ED84100BAD6EC /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFB2179DD80900649D47 /* AFHTTPClient.m */; };
+		54FE07B5179ED84100BAD6EC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFB4179DD80900649D47 /* AFHTTPRequestOperation.m */; };
+		54FE07B6179ED84100BAD6EC /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFB6179DD80900649D47 /* AFImageRequestOperation.m */; };
+		54FE07B7179ED84100BAD6EC /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFB8179DD80900649D47 /* AFJSONRequestOperation.m */; };
+		54FE07B8179ED84100BAD6EC /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFBA179DD80900649D47 /* AFNetworkActivityIndicatorManager.m */; };
+		54FE07B9179ED84100BAD6EC /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFBD179DD80900649D47 /* AFPropertyListRequestOperation.m */; };
+		54FE07BA179ED84100BAD6EC /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFBF179DD80900649D47 /* AFURLConnectionOperation.m */; };
+		54FE07BB179ED84100BAD6EC /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFC1179DD80900649D47 /* AFXMLRequestOperation.m */; };
+		54FE07BC179ED84100BAD6EC /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFC3179DD80900649D47 /* UIImageView+AFNetworking.m */; };
+		54FE07BE179ED86E00BAD6EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FE07BD179ED86E00BAD6EC /* CoreGraphics.framework */; };
+		54FE07BF179ED88300BAD6EC /* NSString+InflectorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFC6179DD80900649D47 /* NSString+InflectorKit.m */; };
+		54FE07C0179ED88300BAD6EC /* TTTStringInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFC8179DD80900649D47 /* TTTStringInflector.m */; };
+		54FE07C1179ED88300BAD6EC /* NSValueTransformer+TransformerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFCC179DD80900649D47 /* NSValueTransformer+TransformerKit.m */; };
+		54FE07C2179ED88300BAD6EC /* TTTDateTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFD0179DD80900649D47 /* TTTDateTransformers.m */; };
+		54FE07C3179ED88300BAD6EC /* TTTImageTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFD1179DD80900649D47 /* TTTImageTransformers.m */; };
+		54FE07C4179ED88300BAD6EC /* TTTStringTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 547BCFD2179DD80900649D47 /* TTTStringTransformers.m */; };
+		54FE07C7179ED8B700BAD6EC /* TestRESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07C6179ED8B700BAD6EC /* TestRESTClient.m */; };
+		54FE07D4179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07D2179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodeld */; };
+		54FE07E1179EDD9900BAD6EC /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07D9179EDD9900BAD6EC /* Artist.m */; };
+		54FE07E2179EDD9900BAD6EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07DB179EDD9900BAD6EC /* Song.m */; };
+		54FE07E3179EDD9900BAD6EC /* _Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07DE179EDD9900BAD6EC /* _Artist.m */; };
+		54FE07E4179EDD9900BAD6EC /* _Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07E0179EDD9900BAD6EC /* _Song.m */; };
+		54FE07EE179EF64100BAD6EC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FE07E6179EF64100BAD6EC /* libOCMock.a */; };
+		54FE07F2179F1E7900BAD6EC /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE07F1179F1E7800BAD6EC /* TestHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +134,31 @@
 		547BD01F179DD99300649D47 /* NSFetchRequest+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+Additions.h"; sourceTree = "<group>"; };
 		547BD020179DD99300649D47 /* NSFetchRequest+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+Additions.m"; sourceTree = "<group>"; };
 		54FE07AA179EBFA900BAD6EC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		54FE07AC179ED19200BAD6EC /* FetchRequestIntegrationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchRequestIntegrationTests.h; sourceTree = "<group>"; };
+		54FE07AD179ED19200BAD6EC /* FetchRequestIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchRequestIntegrationTests.m; sourceTree = "<group>"; };
+		54FE07AF179ED75F00BAD6EC /* TestIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestIncrementalStore.h; sourceTree = "<group>"; };
+		54FE07B0179ED75F00BAD6EC /* TestIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestIncrementalStore.m; sourceTree = "<group>"; };
+		54FE07BD179ED86E00BAD6EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		54FE07C5179ED8B700BAD6EC /* TestRESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRESTClient.h; sourceTree = "<group>"; };
+		54FE07C6179ED8B700BAD6EC /* TestRESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRESTClient.m; sourceTree = "<group>"; };
+		54FE07D3179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncrementalStoreExample.xcdatamodel; sourceTree = "<group>"; };
+		54FE07D8179EDD9900BAD6EC /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
+		54FE07D9179EDD9900BAD6EC /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
+		54FE07DA179EDD9900BAD6EC /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		54FE07DB179EDD9900BAD6EC /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		54FE07DD179EDD9900BAD6EC /* _Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Artist.h; sourceTree = "<group>"; };
+		54FE07DE179EDD9900BAD6EC /* _Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Artist.m; sourceTree = "<group>"; };
+		54FE07DF179EDD9900BAD6EC /* _Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Song.h; sourceTree = "<group>"; };
+		54FE07E0179EDD9900BAD6EC /* _Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Song.m; sourceTree = "<group>"; };
+		54FE07E6179EF64100BAD6EC /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		54FE07E8179EF64100BAD6EC /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		54FE07E9179EF64100BAD6EC /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		54FE07EA179EF64100BAD6EC /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		54FE07EB179EF64100BAD6EC /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		54FE07EC179EF64100BAD6EC /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		54FE07ED179EF64100BAD6EC /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		54FE07F0179F1E7800BAD6EC /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		54FE07F1179F1E7800BAD6EC /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +174,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FE07BE179ED86E00BAD6EC /* CoreGraphics.framework in Frameworks */,
 				54FE07AB179EBFA900BAD6EC /* CoreData.framework in Frameworks */,
 				547BCF92179DD7B000649D47 /* SenTestingKit.framework in Frameworks */,
 				547BCF94179DD7B000649D47 /* UIKit.framework in Frameworks */,
 				547BCF95179DD7B000649D47 /* Foundation.framework in Frameworks */,
+				54FE07EE179EF64100BAD6EC /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +189,7 @@
 		547BCF73179DD7B000649D47 = {
 			isa = PBXGroup;
 			children = (
+				54FE07E5179EF64100BAD6EC /* Libraries */,
 				547BCFAB179DD7F800649D47 /* Vendor */,
 				547BCF83179DD7B000649D47 /* AFIncrementalStoreLibrary */,
 				547BCF9A179DD7B000649D47 /* AFIncrementalStoreLibraryTests */,
@@ -131,6 +201,7 @@
 		547BCF80179DD7B000649D47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54FE07BD179ED86E00BAD6EC /* CoreGraphics.framework */,
 				54FE07AA179EBFA900BAD6EC /* CoreData.framework */,
 				547BCF81179DD7B000649D47 /* Foundation.framework */,
 				547BCF91179DD7B000649D47 /* SenTestingKit.framework */,
@@ -168,9 +239,18 @@
 		547BCF9A179DD7B000649D47 /* AFIncrementalStoreLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
+				54FE07D1179EDBD600BAD6EC /* Models */,
 				547BD01C179DD98800649D47 /* FetchRequestAdditionsTests.h */,
 				547BD01D179DD98800649D47 /* FetchRequestAdditionsTests.m */,
 				547BCF9B179DD7B000649D47 /* Supporting Files */,
+				54FE07AC179ED19200BAD6EC /* FetchRequestIntegrationTests.h */,
+				54FE07AD179ED19200BAD6EC /* FetchRequestIntegrationTests.m */,
+				54FE07AF179ED75F00BAD6EC /* TestIncrementalStore.h */,
+				54FE07B0179ED75F00BAD6EC /* TestIncrementalStore.m */,
+				54FE07C5179ED8B700BAD6EC /* TestRESTClient.h */,
+				54FE07C6179ED8B700BAD6EC /* TestRESTClient.m */,
+				54FE07F0179F1E7800BAD6EC /* TestHelper.h */,
+				54FE07F1179F1E7800BAD6EC /* TestHelper.m */,
 			);
 			path = AFIncrementalStoreLibraryTests;
 			sourceTree = "<group>";
@@ -265,6 +345,60 @@
 			path = "/Users/elliotgarcea/Documents/workspace/AFIncrementalStore/Examples/CheckIns Example/../../TransformerKit/TransformerKit";
 			sourceTree = "<absolute>";
 		};
+		54FE07D1179EDBD600BAD6EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07D7179EDD9900BAD6EC /* Human */,
+				54FE07DC179EDD9900BAD6EC /* Machine */,
+				54FE07D2179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		54FE07D7179EDD9900BAD6EC /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07D8179EDD9900BAD6EC /* Artist.h */,
+				54FE07D9179EDD9900BAD6EC /* Artist.m */,
+				54FE07DA179EDD9900BAD6EC /* Song.h */,
+				54FE07DB179EDD9900BAD6EC /* Song.m */,
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		54FE07DC179EDD9900BAD6EC /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07DD179EDD9900BAD6EC /* _Artist.h */,
+				54FE07DE179EDD9900BAD6EC /* _Artist.m */,
+				54FE07DF179EDD9900BAD6EC /* _Song.h */,
+				54FE07E0179EDD9900BAD6EC /* _Song.m */,
+			);
+			path = Machine;
+			sourceTree = "<group>";
+		};
+		54FE07E5179EF64100BAD6EC /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07E6179EF64100BAD6EC /* libOCMock.a */,
+				54FE07E7179EF64100BAD6EC /* OCMock */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		54FE07E7179EF64100BAD6EC /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07E8179EF64100BAD6EC /* NSNotificationCenter+OCMAdditions.h */,
+				54FE07E9179EF64100BAD6EC /* OCMArg.h */,
+				54FE07EA179EF64100BAD6EC /* OCMConstraint.h */,
+				54FE07EB179EF64100BAD6EC /* OCMock.h */,
+				54FE07EC179EF64100BAD6EC /* OCMockObject.h */,
+				54FE07ED179EF64100BAD6EC /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -344,6 +478,7 @@
 			targets = (
 				547BCF7F179DD7B000649D47 /* AFIncrementalStoreLibrary */,
 				547BCF8E179DD7B000649D47 /* AFIncrementalStoreLibraryTests */,
+				54FE07CC179EDB5600BAD6EC /* MoGen */,
 			);
 		};
 /* End PBXProject section */
@@ -420,6 +555,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		54FE07D0179EDB5B00BAD6EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${SRCROOT}/AFIncrementalStoreLibraryTests\npwd\n/usr/local/bin/mogenerator --template-var arc=true -m Models/IncrementalStoreExample.xcdatamodeld/IncrementalStoreExample.xcdatamodel -M Models/Machine -H Models/Human";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -437,8 +586,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FE07BF179ED88300BAD6EC /* NSString+InflectorKit.m in Sources */,
+				54FE07C0179ED88300BAD6EC /* TTTStringInflector.m in Sources */,
+				54FE07C1179ED88300BAD6EC /* NSValueTransformer+TransformerKit.m in Sources */,
+				54FE07C2179ED88300BAD6EC /* TTTDateTransformers.m in Sources */,
+				54FE07C3179ED88300BAD6EC /* TTTImageTransformers.m in Sources */,
+				54FE07C4179ED88300BAD6EC /* TTTStringTransformers.m in Sources */,
+				54FE07B2179ED84100BAD6EC /* AFIncrementalStore.m in Sources */,
+				54FE07B3179ED84100BAD6EC /* AFRESTClient.m in Sources */,
+				54FE07B4179ED84100BAD6EC /* AFHTTPClient.m in Sources */,
+				54FE07B5179ED84100BAD6EC /* AFHTTPRequestOperation.m in Sources */,
+				54FE07B6179ED84100BAD6EC /* AFImageRequestOperation.m in Sources */,
+				54FE07B7179ED84100BAD6EC /* AFJSONRequestOperation.m in Sources */,
+				54FE07B8179ED84100BAD6EC /* AFNetworkActivityIndicatorManager.m in Sources */,
+				54FE07B9179ED84100BAD6EC /* AFPropertyListRequestOperation.m in Sources */,
+				54FE07BA179ED84100BAD6EC /* AFURLConnectionOperation.m in Sources */,
+				54FE07BB179ED84100BAD6EC /* AFXMLRequestOperation.m in Sources */,
+				54FE07BC179ED84100BAD6EC /* UIImageView+AFNetworking.m in Sources */,
 				547BD01E179DD98800649D47 /* FetchRequestAdditionsTests.m in Sources */,
 				547BD021179DD99300649D47 /* NSFetchRequest+Additions.m in Sources */,
+				54FE07AE179ED19200BAD6EC /* FetchRequestIntegrationTests.m in Sources */,
+				54FE07B1179ED75F00BAD6EC /* TestIncrementalStore.m in Sources */,
+				54FE07C7179ED8B700BAD6EC /* TestRESTClient.m in Sources */,
+				54FE07D4179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodeld in Sources */,
+				54FE07E1179EDD9900BAD6EC /* Artist.m in Sources */,
+				54FE07E2179EDD9900BAD6EC /* Song.m in Sources */,
+				54FE07E3179EDD9900BAD6EC /* _Artist.m in Sources */,
+				54FE07E4179EDD9900BAD6EC /* _Song.m in Sources */,
+				54FE07F2179F1E7900BAD6EC /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,10 +749,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AFIncrementalStoreLibrary/AFIncrementalStoreLibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Libraries\"/**";
 				INFOPLIST_FILE = "AFIncrementalStoreLibraryTests/AFIncrementalStoreLibraryTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -589,12 +774,36 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AFIncrementalStoreLibrary/AFIncrementalStoreLibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Libraries\"/**";
 				INFOPLIST_FILE = "AFIncrementalStoreLibraryTests/AFIncrementalStoreLibraryTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		54FE07CE179EDB5600BAD6EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		54FE07CF179EDB5600BAD6EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -628,7 +837,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		54FE07CD179EDB5600BAD6EC /* Build configuration list for PBXAggregateTarget "MoGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54FE07CE179EDB5600BAD6EC /* Debug */,
+				54FE07CF179EDB5600BAD6EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		54FE07D2179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				54FE07D3179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodel */,
+			);
+			currentVersion = 54FE07D3179EDBD700BAD6EC /* IncrementalStoreExample.xcdatamodel */;
+			path = IncrementalStoreExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 547BCF74179DD7B000649D47 /* Project object */;
 }

@@ -23,10 +23,16 @@
     return rightExpression;
 }
 
+- (NSString *)valueForExpression:(NSExpression *)expression {
+    return expression.expressionType == NSConstantValueExpressionType ? expression.constantValue : expression.keyPath;
+}
+
 - (NSDictionary *)predicateExpressionMapping {
     __block NSMutableDictionary *expressionMapping = [[NSMutableDictionary alloc] init];
     [self enumeratePredicateUsingBlock:^(NSComparisonPredicate *obj, NSUInteger idx, BOOL *stop) {
-        [expressionMapping setObject:obj.rightExpression.keyPath forKey:obj.leftExpression.keyPath];
+        NSString *value = [self valueForExpression:obj.rightExpression];
+        NSString *key = [self valueForExpression:obj.leftExpression];
+        [expressionMapping setObject:value forKey:key];
     }];
     return expressionMapping;
 }
