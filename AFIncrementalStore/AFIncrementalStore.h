@@ -132,7 +132,8 @@
  @return An `NSDictionary` with the representation or an `NSArray` of `NSDictionaries` containing the resource representations.
  */
 - (id)representationOrArrayOfRepresentationsOfEntity:(NSEntityDescription *)entity
-                                  fromResponseObject:(id)responseObject;
+                                  fromResponseObject:(id)responseObject
+                                    requestOperation:(id)requestOperation;
 
 /**
  Returns an `NSDictionary` containing the representations of associated objects found within the representation of a response object, keyed by their relationship name.

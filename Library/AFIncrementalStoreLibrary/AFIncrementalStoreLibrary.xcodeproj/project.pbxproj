@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		544A444417A2CAB300693305 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444317A2CAB300693305 /* CoreDataHelper.m */; };
+		544A444717A2CC4600693305 /* AFIncrementalStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444617A2CC4600693305 /* AFIncrementalStoreTests.m */; };
 		547BCF82179DD7B000649D47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BCF81179DD7B000649D47 /* Foundation.framework */; };
 		547BCF88179DD7B000649D47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 547BCF86179DD7B000649D47 /* InfoPlist.strings */; };
 		547BCF92179DD7B000649D47 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BCF91179DD7B000649D47 /* SenTestingKit.framework */; };
@@ -84,6 +86,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		544A444217A2CAB300693305 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		544A444317A2CAB300693305 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		544A444517A2CC4600693305 /* AFIncrementalStoreTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIncrementalStoreTests.h; sourceTree = "<group>"; };
+		544A444617A2CC4600693305 /* AFIncrementalStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIncrementalStoreTests.m; sourceTree = "<group>"; };
 		547BCF81179DD7B000649D47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		547BCF85179DD7B000649D47 /* AFIncrementalStoreLibrary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AFIncrementalStoreLibrary-Info.plist"; sourceTree = "<group>"; };
 		547BCF87179DD7B000649D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -186,6 +192,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544A444117A167C200693305 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				54FE07AF179ED75F00BAD6EC /* TestIncrementalStore.h */,
+				54FE07B0179ED75F00BAD6EC /* TestIncrementalStore.m */,
+				54FE07C5179ED8B700BAD6EC /* TestRESTClient.h */,
+				54FE07C6179ED8B700BAD6EC /* TestRESTClient.m */,
+				54FE07F0179F1E7800BAD6EC /* TestHelper.h */,
+				54FE07F1179F1E7800BAD6EC /* TestHelper.m */,
+				544A444217A2CAB300693305 /* CoreDataHelper.h */,
+				544A444317A2CAB300693305 /* CoreDataHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		547BCF73179DD7B000649D47 = {
 			isa = PBXGroup;
 			children = (
@@ -239,18 +260,15 @@
 		547BCF9A179DD7B000649D47 /* AFIncrementalStoreLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
+				547BCF9B179DD7B000649D47 /* Supporting Files */,
+				544A444117A167C200693305 /* Helpers */,
 				54FE07D1179EDBD600BAD6EC /* Models */,
 				547BD01C179DD98800649D47 /* FetchRequestAdditionsTests.h */,
 				547BD01D179DD98800649D47 /* FetchRequestAdditionsTests.m */,
-				547BCF9B179DD7B000649D47 /* Supporting Files */,
 				54FE07AC179ED19200BAD6EC /* FetchRequestIntegrationTests.h */,
 				54FE07AD179ED19200BAD6EC /* FetchRequestIntegrationTests.m */,
-				54FE07AF179ED75F00BAD6EC /* TestIncrementalStore.h */,
-				54FE07B0179ED75F00BAD6EC /* TestIncrementalStore.m */,
-				54FE07C5179ED8B700BAD6EC /* TestRESTClient.h */,
-				54FE07C6179ED8B700BAD6EC /* TestRESTClient.m */,
-				54FE07F0179F1E7800BAD6EC /* TestHelper.h */,
-				54FE07F1179F1E7800BAD6EC /* TestHelper.m */,
+				544A444517A2CC4600693305 /* AFIncrementalStoreTests.h */,
+				544A444617A2CC4600693305 /* AFIncrementalStoreTests.m */,
 			);
 			path = AFIncrementalStoreLibraryTests;
 			sourceTree = "<group>";
@@ -614,6 +632,8 @@
 				54FE07E3179EDD9900BAD6EC /* _Artist.m in Sources */,
 				54FE07E4179EDD9900BAD6EC /* _Song.m in Sources */,
 				54FE07F2179F1E7900BAD6EC /* TestHelper.m in Sources */,
+				544A444417A2CAB300693305 /* CoreDataHelper.m in Sources */,
+				544A444717A2CC4600693305 /* AFIncrementalStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +864,7 @@
 				54FE07CF179EDB5600BAD6EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

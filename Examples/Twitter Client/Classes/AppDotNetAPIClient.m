@@ -69,8 +69,9 @@ static NSString * const kAFAppDotNetAPIBaseURLString = @"https://alpha-api.app.n
 
 - (id)representationOrArrayOfRepresentationsOfEntity:(NSEntityDescription *)entity
                                   fromResponseObject:(id)responseObject
+                                    requestOperation:(id)requestOperation
 {
-    id ro = [super representationOrArrayOfRepresentationsOfEntity:entity fromResponseObject:responseObject];
+    id ro = [super representationOrArrayOfRepresentationsOfEntity:entity fromResponseObject:responseObject requestOperation:requestOperation];
     
     if ([ro isKindOfClass:[NSDictionary class]]) {
         id value = nil;

@@ -87,6 +87,7 @@ static NSString * AFQueryByAppendingParameters(NSString *query, NSDictionary *pa
 
 - (id)representationOrArrayOfRepresentationsOfEntity:(NSEntityDescription *)entity
                                   fromResponseObject:(id)responseObject
+                                    requestOperation:(id)requestOperation
 {
     if ([responseObject isKindOfClass:[NSArray class]]) {
         return responseObject;
