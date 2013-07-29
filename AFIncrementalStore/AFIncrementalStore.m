@@ -339,6 +339,10 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
     NSMutableArray *mutableBackingObjects = [NSMutableArray arrayWithCapacity:numberOfRepresentations];
     
     for (NSDictionary *representation in representations) {
+        if ([entity subentities].count > 0 && [self.HTTPClient respondsToSelector:@selector(entityForRepresentation:parentEntity:)]) {
+            entity = [self.HTTPClient entityForRepresentation:representation ofParentEntity:entity fromResponse:response] ?: entity;
+        }
+        
         NSString *resourceIdentifier = [self.HTTPClient resourceIdentifierForRepresentation:representation ofEntity:entity fromResponse:response];
         NSDictionary *attributes = [self.HTTPClient attributesForRepresentation:representation ofEntity:entity fromResponse:response];
         

@@ -102,12 +102,6 @@
                     withContext:(NSManagedObjectContext *)context
                           error:(NSError *__autoreleasing *)error;
 
-/**
- 
- */
-- (NSManagedObjectID *)objectIDForEntity:(NSEntityDescription *)entity
-                  withResourceIdentifier:(NSString *)resourceIdentifier;
-
 @end
 
 #pragma mark -
@@ -283,6 +277,23 @@
 - (BOOL)shouldFetchRemoteValuesForRelationship:(NSRelationshipDescription *)relationship
                                forObjectWithID:(NSManagedObjectID *)objectID
                         inManagedObjectContext:(NSManagedObjectContext *)context;
+
+/**
+ Returns an Entity Description of the specific (sub)entity that is the most accurate type for the remote representation.
+ 
+ @discussion For example, a 'Triangle' and 'Square' entity have a parent entity of type 'Shape' and the remote representation contains the fields 'type':'square', 'vertex':'10'. This method will be called to map the remote representation into the specific subentity type 'Square' instead of the parent type 'Shape'.
+ 
+ @param representation The resource representation.
+ @param parentEntity The parent entity represented
+ @param response The HTTP response for the resource request.
+ 
+ @return An 'NSEntityDescription' that is the most accurate type for the remote representation data.
+ 
+ */
+- (NSEntityDescription *)entityForRepresentation:(NSDictionary *)representation
+                                    ofParentEntity:(NSEntityDescription *)parentEntity
+                                    fromResponse:(NSHTTPURLResponse *)response;
+
 
 @end
 
