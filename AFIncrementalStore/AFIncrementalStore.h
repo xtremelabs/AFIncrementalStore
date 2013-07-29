@@ -102,6 +102,12 @@
                     withContext:(NSManagedObjectContext *)context
                           error:(NSError *__autoreleasing *)error;
 
+/**
+ 
+ */
+- (NSManagedObjectID *)objectIDForEntity:(NSEntityDescription *)entity
+                  withResourceIdentifier:(NSString *)resourceIdentifier;
+
 @end
 
 #pragma mark -
@@ -127,7 +133,7 @@
  */
 - (id)representationOrArrayOfRepresentationsOfEntity:(NSEntityDescription *)entity
                                   fromResponseObject:(id)responseObject
-                                    requestOperation:(id)requestOperation;
+                                    requestOperation:(AFHTTPRequestOperation *)requestOperation;
 
 /**
  Returns an `NSDictionary` containing the representations of associated objects found within the representation of a response object, keyed by their relationship name.

@@ -23,6 +23,10 @@
 /* Begin PBXBuildFile section */
 		544A444417A2CAB300693305 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444317A2CAB300693305 /* CoreDataHelper.m */; };
 		544A444717A2CC4600693305 /* AFIncrementalStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444617A2CC4600693305 /* AFIncrementalStoreTests.m */; };
+		544A444C17A6C8B300693305 /* Comapny.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444917A6C8B300693305 /* Comapny.m */; };
+		544A444D17A6C8B300693305 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444B17A6C8B300693305 /* Person.m */; };
+		544A445217A6C8C400693305 /* _Comapny.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A444F17A6C8C400693305 /* _Comapny.m */; };
+		544A445317A6C8C400693305 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 544A445117A6C8C400693305 /* _Person.m */; };
 		547BCF82179DD7B000649D47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BCF81179DD7B000649D47 /* Foundation.framework */; };
 		547BCF88179DD7B000649D47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 547BCF86179DD7B000649D47 /* InfoPlist.strings */; };
 		547BCF92179DD7B000649D47 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BCF91179DD7B000649D47 /* SenTestingKit.framework */; };
@@ -90,6 +94,14 @@
 		544A444317A2CAB300693305 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		544A444517A2CC4600693305 /* AFIncrementalStoreTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIncrementalStoreTests.h; sourceTree = "<group>"; };
 		544A444617A2CC4600693305 /* AFIncrementalStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIncrementalStoreTests.m; sourceTree = "<group>"; };
+		544A444817A6C8B300693305 /* Comapny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comapny.h; sourceTree = "<group>"; };
+		544A444917A6C8B300693305 /* Comapny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comapny.m; sourceTree = "<group>"; };
+		544A444A17A6C8B300693305 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		544A444B17A6C8B300693305 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		544A444E17A6C8C400693305 /* _Comapny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Comapny.h; sourceTree = "<group>"; };
+		544A444F17A6C8C400693305 /* _Comapny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Comapny.m; sourceTree = "<group>"; };
+		544A445017A6C8C400693305 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		544A445117A6C8C400693305 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
 		547BCF81179DD7B000649D47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		547BCF85179DD7B000649D47 /* AFIncrementalStoreLibrary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AFIncrementalStoreLibrary-Info.plist"; sourceTree = "<group>"; };
 		547BCF87179DD7B000649D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -376,6 +388,10 @@
 		54FE07D7179EDD9900BAD6EC /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				544A444817A6C8B300693305 /* Comapny.h */,
+				544A444917A6C8B300693305 /* Comapny.m */,
+				544A444A17A6C8B300693305 /* Person.h */,
+				544A444B17A6C8B300693305 /* Person.m */,
 				54FE07D8179EDD9900BAD6EC /* Artist.h */,
 				54FE07D9179EDD9900BAD6EC /* Artist.m */,
 				54FE07DA179EDD9900BAD6EC /* Song.h */,
@@ -387,6 +403,10 @@
 		54FE07DC179EDD9900BAD6EC /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				544A444E17A6C8C400693305 /* _Comapny.h */,
+				544A444F17A6C8C400693305 /* _Comapny.m */,
+				544A445017A6C8C400693305 /* _Person.h */,
+				544A445117A6C8C400693305 /* _Person.m */,
 				54FE07DD179EDD9900BAD6EC /* _Artist.h */,
 				54FE07DE179EDD9900BAD6EC /* _Artist.m */,
 				54FE07DF179EDD9900BAD6EC /* _Song.h */,
@@ -634,6 +654,10 @@
 				54FE07F2179F1E7900BAD6EC /* TestHelper.m in Sources */,
 				544A444417A2CAB300693305 /* CoreDataHelper.m in Sources */,
 				544A444717A2CC4600693305 /* AFIncrementalStoreTests.m in Sources */,
+				544A444C17A6C8B300693305 /* Comapny.m in Sources */,
+				544A444D17A6C8B300693305 /* Person.m in Sources */,
+				544A445217A6C8C400693305 /* _Comapny.m in Sources */,
+				544A445317A6C8C400693305 /* _Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

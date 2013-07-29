@@ -5,7 +5,6 @@
 
 const struct ArtistAttributes ArtistAttributes = {
 	.artistDescription = @"artistDescription",
-	.name = @"name",
 };
 
 const struct ArtistRelationships ArtistRelationships = {
@@ -49,13 +48,6 @@ const struct ArtistFetchedProperties ArtistFetchedProperties = {
 
 
 @dynamic artistDescription;
-
-
-
-
-
-
-@dynamic name;
 
 
 

@@ -2,11 +2,10 @@
 // Make changes to Artist.h instead.
 
 #import <CoreData/CoreData.h>
-
+#import "Person.h"
 
 extern const struct ArtistAttributes {
 	__unsafe_unretained NSString *artistDescription;
-	__unsafe_unretained NSString *name;
 } ArtistAttributes;
 
 extern const struct ArtistRelationships {
@@ -20,11 +19,10 @@ extern const struct ArtistFetchedProperties {
 
 
 
-
 @interface ArtistID : NSManagedObjectID {}
 @end
 
-@interface _Artist : NSManagedObject {}
+@interface _Artist : Person {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
@@ -39,16 +37,6 @@ extern const struct ArtistFetchedProperties {
 
 
 //- (BOOL)validateArtistDescription:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSString* name;
-
-
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -78,12 +66,6 @@ extern const struct ArtistFetchedProperties {
 
 - (NSString*)primitiveArtistDescription;
 - (void)setPrimitiveArtistDescription:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
 
 
 

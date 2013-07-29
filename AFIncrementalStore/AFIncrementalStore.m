@@ -339,10 +339,6 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
     NSMutableArray *mutableBackingObjects = [NSMutableArray arrayWithCapacity:numberOfRepresentations];
     
     for (NSDictionary *representation in representations) {
-        if ([entity subentities].count > 0 && [self.HTTPClient respondsToSelector:@selector(entityForRepresentation:parentEntity:)]) {
-            entity = [self.HTTPClient entityForRepresentation:representation ofParentEntity:entity fromResponse:response] ?: entity;
-        }
-        
         NSString *resourceIdentifier = [self.HTTPClient resourceIdentifierForRepresentation:representation ofEntity:entity fromResponse:response];
         NSDictionary *attributes = [self.HTTPClient attributesForRepresentation:representation ofEntity:entity fromResponse:response];
         
@@ -633,8 +629,10 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
             if (!request) {
                 [backingContext performBlockAndWait:^{
                     NSManagedObject *backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
-                    [backingContext deleteObject:backingObject];
-                    [backingContext save:nil];
+                    if (backingObject) {
+                        [backingContext deleteObject:backingObject];
+                        [backingContext save:nil];
+                    }
                 }];
                 continue;
             }
@@ -642,8 +640,10 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
             AFHTTPRequestOperation *operation = [self.HTTPClient HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [backingContext performBlockAndWait:^{
                     NSManagedObject *backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
-                    [backingContext deleteObject:backingObject];
-                    [backingContext save:nil];
+                    if (backingObject) {
+                        [backingContext deleteObject:backingObject];
+                        [backingContext save:nil];
+                    }
                 }];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Delete Error: %@", error);
