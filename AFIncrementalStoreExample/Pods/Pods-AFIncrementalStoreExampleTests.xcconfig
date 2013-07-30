@@ -1,0 +1,10 @@
+#include "Pods-AFIncrementalStoreExampleTests-AFIncrementalStore.xcconfig"
+#include "Pods-AFIncrementalStoreExampleTests-AFNetworking.xcconfig"
+#include "Pods-AFIncrementalStoreExampleTests-InflectorKit.xcconfig"
+#include "Pods-AFIncrementalStoreExampleTests-Kiwi.xcconfig"
+#include "Pods-AFIncrementalStoreExampleTests-TransformerKit.xcconfig"
+FRAMEWORK_SEARCH_PATHS =  ${PODS_AFINCREMENTALSTOREEXAMPLETESTS_KIWI_FRAMEWORK_SEARCH_PATHS}
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFIncrementalStore" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/InflectorKit" "${PODS_ROOT}/Headers/Kiwi" "${PODS_ROOT}/Headers/TransformerKit"
+OTHER_LDFLAGS = -ObjC ${PODS_AFINCREMENTALSTOREEXAMPLETESTS_AFINCREMENTALSTORE_OTHER_LDFLAGS} ${PODS_AFINCREMENTALSTOREEXAMPLETESTS_AFNETWORKING_OTHER_LDFLAGS} ${PODS_AFINCREMENTALSTOREEXAMPLETESTS_KIWI_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}/Pods

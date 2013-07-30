@@ -30,7 +30,8 @@
 }
 
 + (NSString *)type {
-    return NSStringFromClass(self);
+    NSString *test = NSStringFromClass(self);
+    return test;
 }
 
 + (NSManagedObjectModel *)model {

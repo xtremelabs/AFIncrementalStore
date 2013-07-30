@@ -435,10 +435,14 @@
 		F8AFAFCB15AB4F28003FE5BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xtreme Labs Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xtreme Labs Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D282BC1D-E14D-4C38-8C0B-FB8048EE00B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D282BC1D-E14D-4C38-8C0B-FB8048EE00B6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -446,10 +450,14 @@
 		F8AFAFCC15AB4F28003FE5BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xtreme Labs Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xtreme Labs Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D282BC1D-E14D-4C38-8C0B-FB8048EE00B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D282BC1D-E14D-4C38-8C0B-FB8048EE00B6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

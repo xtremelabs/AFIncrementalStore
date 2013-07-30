@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_AFIncrementalStoreExampleTests_AFIncrementalStore : NSObject
+@end
+@implementation PodsDummy_Pods_AFIncrementalStoreExampleTests_AFIncrementalStore
+@end

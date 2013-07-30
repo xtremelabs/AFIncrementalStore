@@ -32,7 +32,4 @@
    <FileRef
       location = "group:Examples/CheckIns Example/CheckIns Example.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Library/AFIncrementalStoreLibrary/AFIncrementalStoreLibrary.xcodeproj">
-   </FileRef>
 </Workspace>
