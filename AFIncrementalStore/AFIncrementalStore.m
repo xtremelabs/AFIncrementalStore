@@ -627,6 +627,7 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
 
             NSURLRequest *request = [self.HTTPClient requestForDeletedObject:deletedObject];
             if (!request) {
+                [_backingObjectIDByObjectID removeObjectForKey:deletedObject.objectID];
                 [backingContext performBlockAndWait:^{
                     NSManagedObject *backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
                     if (backingObject) {
@@ -639,6 +640,7 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
             
             AFHTTPRequestOperation *operation = [self.HTTPClient HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [backingContext performBlockAndWait:^{
+                    [_backingObjectIDByObjectID removeObjectForKey:deletedObject.objectID];
                     NSManagedObject *backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
                     if (backingObject) {
                         [backingContext deleteObject:backingObject];
